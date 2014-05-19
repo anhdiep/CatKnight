@@ -20,9 +20,9 @@ public class DogControler : MonoBehaviour {
 		else
 			direction = Vector3.up;
 		if (div >= 1)
-			baseSpeed = div + 2;
+			baseSpeed = div + 1;
 		else
-			baseSpeed = 2f;
+			baseSpeed = 1f;
 
 		print (baseSpeed);
 		rigidbody2D.velocity = direction * baseSpeed;
@@ -35,7 +35,7 @@ public class DogControler : MonoBehaviour {
 
 		if(transform.position.y > 4f)
 		{
-			Bloodscript.score--;
+			Bloodscript.bs.LoseLife();
 			Destroy(this.gameObject);
 		}
 		if(transform.position.y<-9.3f)
@@ -49,13 +49,15 @@ public class DogControler : MonoBehaviour {
 	
 	void OnMouseDown()
 	{
+		if(HP>0)
+			audio.Play();
 		HP--;
 		if (HP == 0) 
 		{
 			//direction = -Vector3.up;
 			rigidbody2D.gravityScale = 3f;
 			Guitext.Counter += 1;
-			if(Guitext.Counter==30)
+			if(Guitext.Counter%30==0)
 			{
 //				Debug.Log ("spawn special");
 				SpawnerScripts.ss.SpecialSpawn();

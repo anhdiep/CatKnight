@@ -17,7 +17,7 @@ public class SpawnerScripts : MonoBehaviour {
 	public void SpecialSpawn()
 	{
 		special_spawn = true;
-		Invoke ("Offspecial", 3f);
+		Invoke ("Offspecial", 5f);
 	}
 	void Offspecial()
 	{

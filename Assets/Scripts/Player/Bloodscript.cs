@@ -3,8 +3,11 @@ using System.Collections;
 
 public class Bloodscript : MonoBehaviour 
 {
-	public static int score = 3;
+	private int score = 3;
+	public static Bloodscript bs;
 	public GameObject[] lives;
+	public AudioSource bgmusic;
+	public AudioClip gameOver;
 	//	public static int Counter = 0;
 	//	public GUIText guiScore;
 	bool paused = false;
@@ -14,17 +17,22 @@ public class Bloodscript : MonoBehaviour
 	void Start()
 	{
 		score = 3;
+		bs = this;
 		for(int i=0;i<lives.Length;i++)
 		{
 			lives[i].SetActive(true);
 		}
 		Time.timeScale = 1;
 	}
-	void Update()
+	IEnumerator pause(){
+		yield return new WaitForSeconds (0.5f);
+		paused = true;
+		Time.timeScale = 0;
+	}
+	public void LoseLife()
 	{
-		//			Counter += 1;
-		//			guiScore.text = "Score: " + Counter;
-	//	Debug.Log (score);
+		score--;
+		audio.Play ();
 		switch(score)
 		{
 		case 2:
@@ -34,6 +42,7 @@ public class Bloodscript : MonoBehaviour
 			lives[1].SetActive(false);
 			break;
 		case 0:
+			PauseBGMusic();
 			lives[0].SetActive(false);
 			//paused = true;
 			Time.timeScale = 0;
@@ -41,16 +50,12 @@ public class Bloodscript : MonoBehaviour
 			pauseButton.SetActive(false);
 			pauseMenu.SetActive(true);
 			break;
-
-			//Application.LoadLevel ("KinghtCat");
 		}
-		
-		
 	}
-	IEnumerator pause(){
-		yield return new WaitForSeconds (0.5f);
-		paused = true;
-		Time.timeScale = 0;
+	public void PauseBGMusic()
+	{
+//		bgmusic.clip = gameOver;
+		bgmusic.PlayOneShot (gameOver);
 	}
 //	void OnGUI()
 //	{
