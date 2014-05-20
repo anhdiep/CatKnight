@@ -8,8 +8,6 @@ public class Bloodscript : MonoBehaviour
 	public GameObject[] lives;
 	public AudioSource bgmusic;
 	public AudioClip gameOver;
-	//	public static int Counter = 0;
-	//	public GUIText guiScore;
 	bool paused = false;
 	public GameObject pauseButton;
 	public GameObject pauseMenu;
@@ -54,23 +52,7 @@ public class Bloodscript : MonoBehaviour
 	}
 	public void PauseBGMusic()
 	{
-//		bgmusic.clip = gameOver;
+		bgmusic.clip = gameOver;
 		bgmusic.PlayOneShot (gameOver);
 	}
-//	void OnGUI()
-//	{
-//		if (paused == true) {
-//			
-//			if(GUI.Button(new Rect(130,200,100,60),"Retry Game")){
-//				Time.timeScale = 1;
-//				Application.LoadLevel("CatKnight");
-//				
-//			}
-//			if(GUI.Button(new Rect(130,300,100,60),"Quit Game"))
-//			{
-//				Application.Quit();
-//			}
-//		}
-//		
-//	}
 }

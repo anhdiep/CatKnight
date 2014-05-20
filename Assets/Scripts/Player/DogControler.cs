@@ -11,7 +11,7 @@ public class DogControler : MonoBehaviour {
 	private Vector3 direction;
 	// Use this for initialization
 	void Start () {
-		int div = Guitext.Counter / 20;
+		int div = Guitext.Counter / 10;
 		//baseSpeed += speedper20score * div;
 		//direction = Vector3.up;
 		int divide =(int)( Time.time / 5f);
@@ -19,10 +19,11 @@ public class DogControler : MonoBehaviour {
 			ChangeDirection ();
 		else
 			direction = Vector3.up;
-		if (div >= 1)
-			baseSpeed = div + 1;
-		else
-			baseSpeed = 1f;
+//		if (div >= 1f)
+//			baseSpeed = div + 0.5f;
+//		else
+//			baseSpeed = 2.5f;
+		baseSpeed = 2.5f + div * 0.25f;
 
 		print (baseSpeed);
 		rigidbody2D.velocity = direction * baseSpeed;
