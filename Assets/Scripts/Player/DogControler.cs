@@ -2,16 +2,21 @@
 using System.Collections;
 
 public class DogControler : MonoBehaviour {
-	private float baseSpeed;
+	internal float baseSpeed;
+	//private TextMesh bScore;
 	//public int speedper20score;
 	public int HP;
 	//	public int score = 0;
 	//	public GUIText guiScore;
 	
-	private Vector3 direction;
+	internal Vector3 direction;
 	// Use this for initialization
+//	void Awake()
+//	{
+//		bScore.text = "Score :" + PlayerPrefs.GetInt ("Guitext");
+//	}
 	void Start () {
-		int div = Guitext.Counter / 10;
+		int div = Bloodscript.score / 10;
 		//baseSpeed += speedper20score * div;
 		//direction = Vector3.up;
 		int divide =(int)( Time.time / 5f);
@@ -32,7 +37,7 @@ public class DogControler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//transform.Translate (direction * baseSpeed * Time.deltaTime);
-		//if (Guitext.Counter % 20 == 0)
+		//if (Bloodscript.score % 20 == 0)
 
 		if(transform.position.y > 4f)
 		{
@@ -46,46 +51,35 @@ public class DogControler : MonoBehaviour {
 		//transform.position = new Vector3 (Mathf.Clamp (transform.position.x, -0.5f, 2f),Mathf.Clamp(transform.position.y,1.5f, 13.5f),Mathf.Clamp(transform.position.z,0.1f,1f));
 		//if(transform.position.x >2.6f || transform.position.x <-2.2f)
 			//ChangeDirection();
+
 	}
 	
-	void OnMouseDown()
+	public void TouchBalloon()
 	{
 		if(HP>0)
 			audio.Play();
 		HP--;
-		if (HP == 0) 
+		if (HP <= 0) 
 		{
 			//direction = -Vector3.up;
 			rigidbody2D.gravityScale = 3f;
-			Guitext.Counter += 1;
-			if(Guitext.Counter%30==0)
+			Bloodscript.bs.AddScore();
+			if(Bloodscript.score%30==0)
 			{
 //				Debug.Log ("spawn special");
 				SpawnerScripts.ss.SpecialSpawn();
 			}
+			Destroy (transform.GetChild(0).gameObject);
 
 		}
 		//		guiScore.text = "Score: " + score;
 		//AudioTouch.Create();
 	}
+
 	void ChangeDirection()
 	{
 		direction = new Vector3 (Random.Range (-1f, 1f), 1f, 0);
 		direction.Normalize ();
-	}
-
-	void OnTriggerEnter2D (Collider2D coll) {
-		if (coll.name == "wall 1") {
-			//ChangeDirection ();
-			direction = new Vector3 (Random.Range (0f, 1f), 1f, 0);
-			direction.Normalize ();
-			rigidbody2D.velocity = direction * baseSpeed;
-		} else if (coll.name == "wall 2") {
-			//ChangeDirection ();
-			direction = new Vector3 (Random.Range (-1f, 0f), 1f, 0);
-			direction.Normalize ();
-			rigidbody2D.velocity = direction * baseSpeed;
-		}
 	}
 
 }

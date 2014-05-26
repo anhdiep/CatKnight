@@ -55,7 +55,10 @@
      <Compile Include="Assets\Scripts\Player\Bloodscript.cs" />
      <Compile Include="Assets\Scripts\Player\DogControler.cs" />
      <Compile Include="Assets\Scripts\Player\Guitext.cs" />
+     <Compile Include="Assets\Scripts\Player\SaveHight.cs" />
      <Compile Include="Assets\Scripts\Player\SpawnerScripts.cs" />
+     <Compile Include="Assets\Scripts\Player\TouchBong.cs" />
+     <Compile Include="Assets\Scripts\Player\ViewHightScore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

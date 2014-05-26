@@ -5,6 +5,6 @@ public class Guitext : MonoBehaviour {
 	public static int Counter = 0;
 	void Update()
 	{
-		guiText.text = "Score : " + Counter;
+		guiText.text = "" + Counter;
 	}
 }

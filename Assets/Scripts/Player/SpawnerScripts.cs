@@ -1,8 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public class SpawnerScripts : MonoBehaviour {
-	
+public class SpawnerScripts : MonoBehaviour {	
 	public static SpawnerScripts ss;
 	private float spawnTime;
 	private float SpawnDelay;
@@ -40,7 +38,7 @@ public class SpawnerScripts : MonoBehaviour {
 		if(!special_spawn)
 		{
 			Vector3 pos = transform.position;
-			if(Guitext.Counter>=20)
+			if(Bloodscript.score>=20)
 			{
 				int meteorsIndex = Random.Range (0, meteors.Length);
 				Instantiate (meteors [meteorsIndex], new Vector3 (pos.x + Random.Range (-2, 2), pos.y, pos.z), Quaternion.identity);
