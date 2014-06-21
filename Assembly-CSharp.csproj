@@ -52,13 +52,24 @@
      <Compile Include="Assets\Scripts\Button\PauseButton.cs" />
      <Compile Include="Assets\Scripts\Button\RestartButton.cs" />
      <Compile Include="Assets\Scripts\Button\ResumeButton.cs" />
+     <Compile Include="Assets\Scripts\Player\BloodCat.cs" />
      <Compile Include="Assets\Scripts\Player\Bloodscript.cs" />
+     <Compile Include="Assets\Scripts\Player\BossController.cs" />
+     <Compile Include="Assets\Scripts\Player\CatController.cs" />
      <Compile Include="Assets\Scripts\Player\DogControler.cs" />
      <Compile Include="Assets\Scripts\Player\Guitext.cs" />
      <Compile Include="Assets\Scripts\Player\SaveHight.cs" />
+     <Compile Include="Assets\Scripts\Player\SpawnerCat.cs" />
      <Compile Include="Assets\Scripts\Player\SpawnerScripts.cs" />
      <Compile Include="Assets\Scripts\Player\TouchBong.cs" />
+     <Compile Include="Assets\Scripts\Player\TouchCat.cs" />
      <Compile Include="Assets\Scripts\Player\ViewHightScore.cs" />
+     <Compile Include="Assets\Scripts\UI\BackButton.cs" />
+     <Compile Include="Assets\Scripts\UI\CreditButton.cs" />
+     <Compile Include="Assets\Scripts\UI\MoreGameButton.cs" />
+     <Compile Include="Assets\Scripts\UI\PlayButton.cs" />
+     <Compile Include="Assets\Scripts\UI\StudioScripts.cs" />
+     <Compile Include="Assets\Scripts\UI\Text.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

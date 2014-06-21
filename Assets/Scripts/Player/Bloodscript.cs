@@ -20,6 +20,7 @@ public class Bloodscript : MonoBehaviour
 
 	void Start()
 	{
+		//tao 3 cuc mau
 		blood = 3;
 		bs = this;
 		for(int i=0;i<lives.Length;i++)
@@ -33,6 +34,7 @@ public class Bloodscript : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0))
 		{
+			//Bắt sự kien touch
 	//		Collider2D col = Physics2D.OverlapPoint(Input.GetTouch(0).position.x,Input.GetTouch (0).position.y));
 		//	Collider2D col = Physics2D.OverlapCircle(new Vector2(Input.mousePosition.x,Input.mousePosition.y),0.5f,1<<8);
 			RaycastHit2D col = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition),Vector2.zero);
@@ -42,20 +44,20 @@ public class Bloodscript : MonoBehaviour
 				if(col.collider.CompareTag("Bong"))
 				{
 					col.collider.GetComponent<TouchBong>().OnMouseEnter();
-			
 				}
+
 			}
-				//Debug.Log ("cast failed");
 		}
 	}
 
 	IEnumerator pause(){
-		yield return new WaitForSeconds (0.5f);
+		yield return new WaitForSeconds (0.1f);
 		paused = true;
 		Time.timeScale = 0;
 	}
 	public void LoseLife()
 	{
+		//máu khi cho bay lên
 		blood--;
 		audio.Play ();
 		switch(blood)
@@ -82,7 +84,7 @@ public class Bloodscript : MonoBehaviour
 		bgmusic.clip = gameOver;
 		bgmusic.PlayOneShot (gameOver);
 	}
-	void EndGame()
+	public void EndGame()
 	{
 		PauseBGMusic();
 		lives[0].SetActive(false);

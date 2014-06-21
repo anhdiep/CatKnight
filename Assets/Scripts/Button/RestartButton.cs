@@ -6,6 +6,6 @@ public class RestartButton : MonoBehaviour
 	void OnMouseDown()
 	{
 		Guitext.Counter = 0;
-		Application.LoadLevel (0);
+		Application.LoadLevel ("CatKnight");
 	}
 }
